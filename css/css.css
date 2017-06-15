@@ -1,0 +1,114 @@
+body{
+	background-image: url("../img/background.jpg");
+	background-size: 100% 100%;
+}
+
+#wrapper {
+    margin-top: 5%;
+    margin-left: auto;
+	margin-right: auto;
+    background: transparent;
+	display: none;
+}
+
+.row {
+    width: auto;
+    height: 160px;
+    background: transparent;
+}
+
+.square {
+    width: 150px;
+    height: 150px;
+    margin: 5px; 
+    display: inline-block;
+    float: left;
+}
+
+.flip-container {
+	perspective: 1000px;
+	transform-origin: center;
+	transition: 1s;
+	transform-style: preserve-3d;
+}
+
+.flip-container.flip {
+	transform: rotateY(-180deg);
+}
+
+.flip-container.flip-over {
+	transform: rotateY(0deg);
+}
+
+.front, .back {
+	width: 150px;
+    height: 150px;
+	border-radius: 4%;
+	box-shadow: 0 0 0 2pt black, -3pt -2pt 10pt 2pt black;
+	
+	backface-visibility: hidden;
+	
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.front{
+	z-index: 2;
+	transform: rotateY(0deg);
+	background-image: url("../img/cardFront.jpg");
+	background-size: 134%;
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+}
+
+.back {
+	transform: rotateY(180deg);
+	text-align: center;
+}
+
+.number {
+	color: #FFFFFF;
+	font-size: 50px;
+	font-weight: bold;
+}
+
+.n0 {
+	background: #8ba2e2;
+}
+
+.n1 {
+	background: #ea8699;
+}
+
+.n2 {
+	background: #ca6dc2;
+}
+
+.n3 {
+	background: #6d70ca;
+}
+
+.n4 {
+	background: #6dc1ca;
+}
+
+.n5 {
+	background: #6eca6d;
+}
+
+.n6 {
+	background: #cab66d;
+}
+
+.n7 {
+	background: #caa16d;
+}
+
+.n8 {
+	background: #ca826d;
+}
+
+.n9 {
+	background: #b3ca6d;
+}
