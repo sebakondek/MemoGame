@@ -19,16 +19,16 @@ $(document).ready(function(){
 			cards = [];	
 			
 			do{
-				var qty = Math.floor(prompt("How many pair of numbers would you like to play with? (2-10)"));
-			}while((qty < 2 || qty > 10))
+				var pairs = Math.floor(prompt("Con cuantos pares de cartas queres jugar? (2-10)"));
+			}while((pairs < 2 || pairs > 10))
 			
 			$("#start").text("RESTART");
 			
-			grid(qty);
-			assignValues(qty);
+			grid(pairs);
+			assignValues(pairs);
 			
 			$("#autoplay").on("click", function(){
-				autoplay(qty, cards);
+				autoplay(pairs, cards);
 			})
 			
 			$(".square").on("click",function(){
@@ -37,11 +37,11 @@ $(document).ready(function(){
 		}
 
 
-		function assignValues(qty){
+		function assignValues(pairs){
 			var numbers=[];
 			
 			for(var i = 0; i < 2; i++){
-				for(var j = 0; j < qty; j++){
+				for(var j = 0; j < pairs; j++){
 					numbers.push(j);
 				}
 			}
@@ -67,6 +67,7 @@ $(document).ready(function(){
 					elem.removeClass("flip-over");
 					elem.addClass("flip");
 					elem.children(".back").addClass("n" + cardId).append('<p class="number">' + cardId + '</p>');
+					
 					elems.push(elem);
 					flipped++;
 				}
@@ -95,7 +96,7 @@ $(document).ready(function(){
 					}			
 							
 					if(points === (cards.length / 2))
-						if(confirm("Congratulations! Would you like to play again?"))
+						if(confirm("Felicitaciones! Queres jugar de nuevo?"))
 							start();
 					
 				}, 900);

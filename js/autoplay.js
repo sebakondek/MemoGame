@@ -1,26 +1,33 @@
 var autoplaying;
+var intervalID;
 
 function autoplay(pairs, cards){
-	if(autoplaying){
-		alert("It is already playing!");
-		return;
-	}
+	$("#autoplay").text("STOP AUTOPLAY");
 	
 	var autoplayCards = [];
 	var i = 0;
 	var click = 0;
 
-	var intervalID = setInterval(function(){
-		if(i < (pairs * 2)){
-			autoplaying = true;
-			clickCard();
-			i++;
-		} else {
-			autoplaying = false;
+	if(autoplaying){
+		if(confirm("Estas seguro que deseas parar el autoplay?")){
 			clearInterval(intervalID);
 			intervalID = null;
+			autoplaying = false;
+			$("#autoplay").text("AUTOPLAY");
 		}
-	}, 1400);
+	}else{
+		intervalID = setInterval(function(){
+			if(i < (pairs * 2)){
+				autoplaying = true;
+				clickCard();
+				i++;
+			} else {
+				autoplaying = false;
+				clearInterval(intervalID);
+				intervalID = null;
+			}
+		}, 1400);
+	}
 
 	
 	function clickCard() {
